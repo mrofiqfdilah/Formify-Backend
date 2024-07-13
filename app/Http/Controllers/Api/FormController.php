@@ -16,7 +16,7 @@ class FormController extends Controller
     {
         $validator = Validator::make($request->all(), [
         'name' => 'required',
-        'slug' => 'required|unique:forms,slug',
+       'slug' => 'required|unique:forms,slug|regex:/^[a-zA-Z0-9.-]+$/',
         'allowed_domains' => 'array'
         ]);
 
