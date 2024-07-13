@@ -90,7 +90,9 @@ class ResponseController extends Controller
             ], 403);
         } 
 
-        $response = Responses::with('user','answers.questions')->get();
+        $response = Responses::with('user','answers.questions')
+                             ->where('form_id',$form->id)
+                            ->get();
 
         $data = $response->map(function ($data){
 
